@@ -13,7 +13,7 @@ st.markdown('''
 ## Come let me know
 ''')
 
-pickup_datetime = st.text_input('Pickup Datetime (YYYY-MM-DD HH:MM:SS)', '2012-10-06 12:10:20')
+pickup_datetime = st.text_input('When do you want to be picked up? (YYYY-MM-DD HH:MM:SS)', '2012-10-06 12:10:20')
 
 geolocator = Nominatim(user_agent="taxifare-app")
 
@@ -38,11 +38,11 @@ def create_map(pickup_lat, pickup_lon, dropoff_lat, dropoff_lon):
     else:
         st.write("Enter both pickup and dropoff locations to display the map.")
 
-st.subheader("Pickup Location")
+st.subheader("Pick me up here")
 pickup_address = st.text_input("Enter Pickup Address")
 pickup_lat, pickup_lon = geocode_address(pickup_address)
 
-st.subheader("Dropoff Location")
+st.subheader("Drop me off there")
 dropoff_address = st.text_input("Enter Dropoff Address")
 dropoff_lat, dropoff_lon = geocode_address(dropoff_address)
 
