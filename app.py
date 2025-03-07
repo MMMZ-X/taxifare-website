@@ -5,6 +5,8 @@ import numpy as np
 import folium
 from streamlit_folium import folium_static
 from geopy.geocoders import Nominatim
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 
 st.write('Welcome to the monkeyhouse.....')
@@ -22,6 +24,13 @@ with col1:
 
     def geocode_address(address):
         try:
+            session = requests.Session()
+            retry = Retry(connect=3, backoff_factor=0.5)
+            adapter = HTTPAdapter(max_retries=retry)
+            session.mount('http://', adapter)
+            session.mount('https://', adapter)
+            geolocator.session = session
+
             location = geolocator.geocode(address)
             if location:
                 return location.latitude, location.longitude

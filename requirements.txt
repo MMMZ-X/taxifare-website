@@ -6,3 +6,5 @@ numpy
 folium
 streamlit_folium
 geopy
+urllib3
+retry
