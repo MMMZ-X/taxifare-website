@@ -51,6 +51,9 @@ with col1:
 
     create_map(pickup_lat, pickup_lon, dropoff_lat, dropoff_lon)
 with col2:
+
+    st.image("Taxi.jpg", caption="My Image", use_column_width=True)
+
     passenger_count = st.slider('Passenger Count', 1, 8, 1)
 
     url = 'https://taxifare.lewagon.ai/predict'
