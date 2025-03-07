@@ -49,18 +49,3 @@ if st.button('Get Prediction'):  # Add a button to trigger the API call
 
 # col1, col2 = st.columns(2)
 # with col1:
-
-
-
-# new stuff by me
-
-def get_map_data():
-
-    return pd.DataFrame(
-            np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-            columns=['lat', 'lon']
-        )
-
-df = get_map_data()
-
-st.map(df)
