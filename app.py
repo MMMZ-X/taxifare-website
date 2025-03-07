@@ -48,21 +48,16 @@ dropoff_lat, dropoff_lon = geocode_address(dropoff_address)
 
 create_map(pickup_lat, pickup_lon, dropoff_lat, dropoff_lon)
 
-pickup_longitude = st.number_input('Pickup Longitude', format="%0.4f")
-pickup_latitude = st.number_input('Pickup Latitude', format="%0.4f")
-dropoff_longitude = st.number_input('Dropoff Longitude', format="%0.4f")
-dropoff_latitude = st.number_input('Dropoff Latitude', format="%0.4f")
-
 passenger_count = st.slider('Passenger Count', 1, 8, 1)
 
 url = 'https://taxifare.lewagon.ai/predict'
 
 payload = {
     'pickup_datetime': pickup_datetime,
-    'pickup_longitude': pickup_longitude,
-    'pickup_latitude': pickup_latitude,
-    'dropoff_longitude': dropoff_longitude,
-    'dropoff_latitude': dropoff_latitude,
+    'pickup_longitude': pickup_lon,
+    'pickup_latitude': pickup_lat,
+    'dropoff_longitude': dropoff_lon,
+    'dropoff_latitude': dropoff_lat,
     'passenger_count': passenger_count
 }
 
