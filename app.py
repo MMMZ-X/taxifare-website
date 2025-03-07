@@ -11,10 +11,10 @@ st.markdown('''
 ''')
 
 pickup_datetime = st.text_input('Pickup Datetime (YYYY-MM-DD HH:MM:SS)', '2012-10-06 12:10:20')
-pickup_longitude = st.number_input('Pickup Longitude', -73.985130)
-pickup_latitude = st.number_input('Pickup Latitude', 40.758850)
-dropoff_longitude = st.number_input('Dropoff Longitude', -73.985130)
-dropoff_latitude = st.number_input('Dropoff Latitude', 40.758850)
+pickup_longitude = st.number_input('Pickup Longitude', format="%0.4f")
+pickup_latitude = st.number_input('Pickup Latitude', format="%0.4f")
+dropoff_longitude = st.number_input('Dropoff Longitude', format="%0.4f")
+dropoff_latitude = st.number_input('Dropoff Latitude', format="%0.4f")
 passenger_count = st.slider('Passenger Count', 1, 8, 1)
 
 url = 'https://taxifare.lewagon.ai/predict'
